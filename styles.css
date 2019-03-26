@@ -1,0 +1,50 @@
+.all-movies {
+ margin: 2rem;
+ display: inline-grid;
+ display: grid;
+ grid-template-columns: repeat(5, 1fr);
+ grid-gap: 10px;
+ /* display: flex; */
+ /* flex-direction: row; */
+ /* flex-wrap: wrap; */
+ /* width: 100%; */
+ /* justify-content: space-around; */
+}
+
+.card {
+ text-align: center;
+ border: grey solid 1px;
+ padding: 1rem;
+ width: 15rem;
+ height: 25rem;
+ display: inline-grid;
+ grid-gap: 10px;
+ margin: 1rem 2rem;
+ box-shadow: 3px 4px #2b242b
+}
+
+.card-image{
+  width: 100%;
+
+}
+
+.category {
+  color: grey;
+  font-size: 22px;
+}
+
+/* .card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+} */
+
+.card button:hover {
+  opacity: 0.7;
+}

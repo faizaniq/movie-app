@@ -1,0 +1,18 @@
+{
+  "movies": [
+    {
+      "name": "asdfas",
+      "category": "asdfasd",
+      "description": "asdfasdfa",
+      "image": "asdfasdf",
+      "id": 1
+    },
+    {
+      "name": "asdfas",
+      "category": "asdfasd",
+      "description": "asdfasdfa",
+      "image": "asdfasdf",
+      "id": 2
+    }
+  ]
+}
