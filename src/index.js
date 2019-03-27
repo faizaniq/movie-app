@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function(event){
+const movieURL = 'http://localhost:3000/movies'
 
-  const movieURL = 'http://localhost:3000/movies'
+document.addEventListener('DOMContentLoaded', function(event){
   const allMovies = document.querySelector('.all-movies')
   const card = document.querySelector('.card')
   const addMovieContainer = document.querySelector('.add-movie')
@@ -10,64 +10,7 @@ document.addEventListener('DOMContentLoaded', function(event){
   const addImage = document.getElementById('add-image')
   const addReview = document.getElementById('review')
 
-  //fetch
-  function movieFetcher(){
-    return fetch(movieURL)
-    .then(res => res.json())
-  }
-
-
-  //display all & edit forms
-  function displayAllMovies(){
-    movieFetcher()
-    .then(movies => {
-    movies.forEach(movie => {
-      console.log(movie.name)
-      allMovies.innerHTML +=
-      `
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <div data-movie-id=${movie.id}>
-              <div class="card">
-                <img src=${movie.image} alt=${movie.name} class='card-image'>
-              </div>
-            </div>
-          </div>
-          <div class="flip-card-back">
-          <br/>
-            <h4>${movie.name}</h4>
-            <p class="category">${movie.category}</p>
-            <p>${movie.description}</p>
-            <li>${movie.review}</li>
-            <button class="editmovie" data-id="${movie.id}">Edit</button>
-          </div>
-        </div>
-        <br/>
-        <br/>
-        <div class="edit-movie" style="">
-          <form id="edit-form">
-            <input type="text" name="name" id="edit-name" size="42" placeholder="Name" value='${movie.name}'>
-            <br/>
-            <input type="text" name="category" id="edit-category" size="42" placeholder="Category" value='${movie.category}'>
-            <br/>
-            <input type="text" name="url" id="edit-image" size="42" placeholder="Image URL" value='${movie.image}'>
-            <br/>
-            <input type="text" name="description" id="edit-description" size="42" placeholder="Description..." value='${movie.description}'>
-            <br/>
-            <input type="text" name="review" id="edit-review" size="42" placeholder="Review..." value='${movie.review}'>
-            <br/>
-            <input type="submit" value="Update" data-id=${movie.id}></input>
-            <input type="submit" value="Delete" data-id=${movie.id}></input>
-            <input type="submit" value="Add to Favorites" data-id=${movie.id}></input>
-          </form>
-        </div>
-      </div>
-      `
-      })
-    })
-  }
-  displayAllMovies()
+  displayAllMovies(allMovies)
 
   // addMovieContainer.reset()
 
@@ -149,26 +92,92 @@ document.addEventListener('DOMContentLoaded', function(event){
     // })
 
     document.addEventListener('click', (e) => {
-      if (e.target.className === 'editmovie') {
-        console.log('clicked');
-        const editForm = e.target.parentNode.parentNode.querySelector('.edit-movie')
-        if (!editForm.style.display || editForm.style.display === "none") {
-          editForm.style.display = "block"
-        } else {
-          editForm.style.display = "none"
-        }
-      } else if (e.target.innerText === 'Add Movie') {
-        console.log(addMovieContainer)
-        const addForm = document.getElementById('add-form')
-        if (!addForm.style.display || addForm.style.display === "none") {
-          addMovieContainer.style.display = "block"
-        } else {
-          addMovieContainer.style.display = "none"
-        }
+      const target = e.target
+      if (target.className === 'editmovie') {
+        toggleEditForm(target)
+      } else if (target.innerText === 'Add Movie') {
+        toggleAddForm(addMovieContainer)
       }
     })
 
 
 
-
 })//DOM Loader
+
+
+function movieHtml(movie) {
+  return `
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <div data-movie-id=${movie.id}>
+          <div class="card">
+            <img src=${movie.image} alt=${movie.name} class='card-image'>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card-back">
+      <br/>
+        <h4>${movie.name}</h4>
+        <p class="category">${movie.category}</p>
+        <p>${movie.description}</p>
+        <li>${movie.review}</li>
+      </div>
+    </div>
+    <br/>
+    <br/>
+    <button class="editmovie" data-id="${movie.id}">Edit</button>
+    <div class="edit-movie" style="">
+      <form id="edit-form">
+        <input type="text" name="name" id="edit-name" size="42" placeholder="Name" value='${movie.name}'>
+        <br/>
+        <input type="text" name="category" id="edit-category" size="42" placeholder="Category" value='${movie.category}'>
+        <br/>
+        <input type="text" name="url" id="edit-image" size="42" placeholder="Image URL" value='${movie.image}'>
+        <br/>
+        <input type="text" name="description" id="edit-description" size="42" placeholder="Description..." value='${movie.description}'>
+        <br/>
+        <input type="text" name="review" id="edit-review" size="42" placeholder="Review..." value='${movie.review}'>
+        <br/>
+        <input type="submit" value="Update" data-id=${movie.id}></input>
+        <input type="submit" value="Delete" data-id=${movie.id}></input>
+        <input type="submit" value="Add to Favorites" data-id=${movie.id}></input>
+      </form>
+    </div>
+  </div>
+  `
+}
+
+
+function movieFetcher(){
+  return fetch(movieURL)
+  .then(res => res.json())
+}
+
+//display all & edit forms
+function displayAllMovies(domNode){
+  movieFetcher()
+  .then(movies => {
+    movies.forEach(movie => {
+      domNode.innerHTML += movieHtml(movie)
+    })
+  })
+}
+
+
+function toggleEditForm(target) {
+  const editForm = target.parentNode.querySelector('.edit-movie')
+  if (!editForm.style.display || editForm.style.display === "none") {
+    editForm.style.display = "block"
+  } else {
+    editForm.style.display = "none"
+  }
+}
+
+function toggleAddForm(container) {
+  if (!container.style.display || container.style.display === "none") {
+    container.style.display = "block"
+  } else {
+    container.style.display = "none"
+  }
+}

@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function(event){
   movieFetcher()
 
   document.addEventListener('click', (e) => {
+    e.preventDefault()
     if (e.target.value === 'Submit') {
       e.preventDefault()
       console.log(addName.value)
@@ -87,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function(event){
       }).then( res => movieFetcher())
       addName.value.reset()
     } else if (e.target.value === 'Update') {
+      console.log('here in update');
       e.preventDefault()
       // let editName = document.getElementById('edit-name')
       let editName = e.target.parentElement.name.value
@@ -113,7 +115,18 @@ document.addEventListener('DOMContentLoaded', function(event){
             image: editImage,
             review: editReview
           }),
-        }).then( res => movieFetcher())
+        }).then( res => {
+          return res.json()
+        }).then(res => {
+          console.log('here is the response from json server', res);
+          // right now you say go fetch all the movies again and re-add all to DOM
+
+          // instead
+          // find the Dom node that represents this movie (with the same id)
+          // clear and reset the innerHTML of this dom node
+          movieFetcher()
+        })
+
       } else if (e.target.value === 'Delete') {
         e.preventDefault()
         let movieId = e.target.dataset.id
