@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function(event){
   const addDescription = document.getElementById('add-description')
   const addImage = document.getElementById('add-image')
   const addReview = document.getElementById('review')
-  const addForm = document.getElementById('add-form')
+  // const addForm = document.getElementById('add-form')
 
   function movieFetcher(){
     allMovies.innerHTML = ""
@@ -124,21 +124,20 @@ document.addEventListener('DOMContentLoaded', function(event){
       }
   })
 
-  let editMovie = false
-  let addMovie = false
+
   document.addEventListener('click', (e) => {
-    if (e.target.innerText === 'Edit') {
+    if (e.target.className === 'editmovie') {
+      console.log('clicked');
       const editForm = e.target.parentNode.parentNode.querySelector('.edit-movie')
-      editMovie = !editMovie
-      if (editMovie) {
+      if (!editForm.style.display || editForm.style.display === "none") {
         editForm.style.display = "block"
       } else {
         editForm.style.display = "none"
       }
     } else if (e.target.innerText === 'Add Movie') {
       console.log(addMovieContainer)
-      addMovie = !addMovie
-      if (addMovie) {
+      const addForm = document.getElementById('add-form')
+      if (!addForm.style.display || addForm.style.display === "none") {
         addMovieContainer.style.display = "block"
       } else {
         addMovieContainer.style.display = "none"

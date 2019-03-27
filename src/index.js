@@ -9,16 +9,21 @@ document.addEventListener('DOMContentLoaded', function(event){
   const addDescription = document.getElementById('add-description')
   const addImage = document.getElementById('add-image')
   const addReview = document.getElementById('review')
-  const addForm = document.getElementById('add-form')
 
+  //fetch
   function movieFetcher(){
-    allMovies.innerHTML = ""
-    fetch(movieURL)
+    return fetch(movieURL)
     .then(res => res.json())
+  }
+
+
+  //display all & edit forms
+  function displayAllMovies(){
+    movieFetcher()
     .then(movies => {
     movies.forEach(movie => {
-    console.log(movie.name)
-    allMovies.innerHTML +=
+      console.log(movie.name)
+      allMovies.innerHTML +=
       `
       <div class="flip-card">
         <div class="flip-card-inner">
@@ -35,10 +40,10 @@ document.addEventListener('DOMContentLoaded', function(event){
             <p class="category">${movie.category}</p>
             <p>${movie.description}</p>
             <li>${movie.review}</li>
+            <button class="editmovie" data-id="${movie.id}">Edit</button>
           </div>
         </div>
         <br/>
-        <div><button class="editmovie" data-id="${movie.id}">Edit</button></div>
         <br/>
         <div class="edit-movie" style="">
           <form id="edit-form">
@@ -61,91 +66,109 @@ document.addEventListener('DOMContentLoaded', function(event){
       `
       })
     })
-    // addMovieContainer.reset()
   }
-  movieFetcher()
+  displayAllMovies()
 
-  document.addEventListener('click', (e) => {
-    if (e.target.value === 'Submit') {
-      e.preventDefault()
-      console.log(addName.value)
-      console.log(addCategory.value)
-      console.log(addDescription.value)
-      console.log(addImage.value)
-      return fetch(movieURL, {
-        method: "POST", // *GET, POST, PUT, DELETE, etc.
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: addName.value,
-          category: addCategory.value,
-          description: addDescription.value,
-          image: addImage.value,
-          review: addReview.value
-        }), // body data type must match "Content-Type" header
-      }).then( res => movieFetcher())
-      addName.value.reset()
-    } else if (e.target.value === 'Update') {
-      e.preventDefault()
-      // let editName = document.getElementById('edit-name')
-      let editName = e.target.parentElement.name.value
-      let editDescription = e.target.parentElement.description.value
-      let editCategory = e.target.parentElement.category.value
-      let editImage = e.target.parentElement.url.value
-      let editReview = e.target.parentElement.review.value
-      console.log(editName)
-      console.log(editDescription)
-      console.log(editCategory)
-      console.log(editImage)
-      let movieId = e.target.dataset.id
-      console.log()
-      fetch(`${movieURL}/${movieId}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(
-          {
-            name: editName,
-            category: editCategory,
-            description: editDescription,
-            image: editImage,
-            review: editReview
-          }),
-        }).then( res => movieFetcher())
-      } else if (e.target.value === 'Delete') {
-        e.preventDefault()
-        let movieId = e.target.dataset.id
-        console.log('here')
-        fetch(`${movieURL}/${movieId}`, {
-          method: "DELETE",
-        }).then( res => movieFetcher())
+  // addMovieContainer.reset()
+
+  // document.addEventListener('click', (e) => {
+  //   if (e.target.value === 'Submit') {
+  //     e.preventDefault()
+  //     return fetch(movieURL, {
+  //       method: "POST", // *GET, POST, PUT, DELETE, etc.
+  //       headers: {
+  //           "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         name: addName.value,
+  //         category: addCategory.value,
+  //         description: addDescription.value,
+  //         image: addImage.value,
+  //         review: addReview.value
+  //       }), // body data type must match "Content-Type" header
+  //       // allMovies.innerHTML = ""
+  //     }).then( res => displayAllMovies())
+  //     addName.value.reset()
+  //   } else if (e.target.value === 'Update') {
+  //     e.preventDefault()
+  //     let editName = e.target.parentElement.name.value
+  //     let editDescription = e.target.parentElement.description.value
+  //     let editCategory = e.target.parentElement.category.value
+  //     let editImage = e.target.parentElement.url.value
+  //     let editReview = e.target.parentElement.review.value
+  //     let movieId = e.target.dataset.id
+  //     console.log()
+  //     fetch(`${movieURL}/${movieId}`, {
+  //       method: "PATCH",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(
+  //         {
+  //           name: editName,
+  //           category: editCategory,
+  //           description: editDescription,
+  //           image: editImage,
+  //           review: editReview
+  //         }),
+  //       }).then( res => movieFetcher())
+  //     } else if (e.target.value === 'Delete') {
+  //       e.preventDefault()
+  //       let movieId = e.target.dataset.id
+  //       console.log('here')
+  //       fetch(`${movieURL}/${movieId}`, {
+  //         method: "DELETE",
+  //       }).then( res => movieFetcher())
+  //     }
+  // })
+
+  // let editMovie = false
+  // let addMovie = false
+  // document.addEventListener('click', (e) => {
+  //   if (e.target.innerText === 'Edit' && e.target.dataset.id === e.target.parentNode.parentNode.id) {
+  //     // debugger
+  //     // formDiv.id = e.target.dataset.id
+  //     const editForm = e.target.parentNode.appendChild(formDiv)
+  //     console.log(e.target.parentNode)
+  //     editMovie = !editMovie
+  //     if (editMovie) {
+  //       editForm.style.display = "block"
+  //     } else {
+  //       editForm.style.display = "none"
+  //     }
+    // } else if (e.target.innerText === 'Add Movie') {
+    //   console.log(addMovieContainer)
+    //   addMovie = !addMovie
+    //   if (addMovie) {
+    //     addMovieContainer.style.display = "block"
+    //   } else {
+    //     addMovieContainer.style.display = "none"
+    //   }
+
+    //   }
+    // })
+
+    document.addEventListener('click', (e) => {
+      if (e.target.className === 'editmovie') {
+        console.log('clicked');
+        const editForm = e.target.parentNode.parentNode.querySelector('.edit-movie')
+        if (!editForm.style.display || editForm.style.display === "none") {
+          editForm.style.display = "block"
+        } else {
+          editForm.style.display = "none"
+        }
+      } else if (e.target.innerText === 'Add Movie') {
+        console.log(addMovieContainer)
+        const addForm = document.getElementById('add-form')
+        if (!addForm.style.display || addForm.style.display === "none") {
+          addMovieContainer.style.display = "block"
+        } else {
+          addMovieContainer.style.display = "none"
+        }
       }
-  })
-
-  let editMovie = false
-  let addMovie = false
-  document.addEventListener('click', (e) => {
-    if (e.target.innerText === 'Edit') {
-      const editForm = e.target.parentNode.parentNode.querySelector('.edit-movie')
-      editMovie = !editMovie
-      if (editMovie) {
-        editForm.style.display = "block"
-      } else {
-        editForm.style.display = "none"
-      }
-    } else if (e.target.innerText === 'Add Movie') {
-      console.log(addMovieContainer)
-      addMovie = !addMovie
-      if (addMovie) {
-        addMovieContainer.style.display = "block"
-      } else {
-        addMovieContainer.style.display = "none"
-      }
-    }
-  })
+    })
 
 
 
-})
+
+})//DOM Loader
