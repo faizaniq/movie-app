@@ -17,10 +17,9 @@ document.addEventListener('DOMContentLoaded', function(event){
     .then(res => res.json())
     .then(movies => {
     movies.forEach(movie => {
-    console.log(movie.name)
     allMovies.innerHTML +=
       `
-      <div class="flip-card">
+      <div id=${movie.id} class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <div data-movie-id=${movie.id}>
@@ -69,10 +68,6 @@ document.addEventListener('DOMContentLoaded', function(event){
     e.preventDefault()
     if (e.target.value === 'Submit') {
       e.preventDefault()
-      console.log(addName.value)
-      console.log(addCategory.value)
-      console.log(addDescription.value)
-      console.log(addImage.value)
       return fetch(movieURL, {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         headers: {
@@ -86,9 +81,16 @@ document.addEventListener('DOMContentLoaded', function(event){
           review: addReview.value
         }), // body data type must match "Content-Type" header
       }).then( res => movieFetcher())
+
+
+
+
+
+
+
+
       addName.value.reset()
     } else if (e.target.value === 'Update') {
-      console.log('here in update');
       e.preventDefault()
       // let editName = document.getElementById('edit-name')
       let editName = e.target.parentElement.name.value
@@ -96,12 +98,7 @@ document.addEventListener('DOMContentLoaded', function(event){
       let editCategory = e.target.parentElement.category.value
       let editImage = e.target.parentElement.url.value
       let editReview = e.target.parentElement.review.value
-      console.log(editName)
-      console.log(editDescription)
-      console.log(editCategory)
-      console.log(editImage)
       let movieId = e.target.dataset.id
-      console.log()
       fetch(`${movieURL}/${movieId}`, {
         method: "PATCH",
         headers: {
@@ -117,30 +114,29 @@ document.addEventListener('DOMContentLoaded', function(event){
           }),
         }).then( res => {
           return res.json()
-        }).then(res => {
-          console.log('here is the response from json server', res);
+        }).then(movie => {
           // right now you say go fetch all the movies again and re-add all to DOM
 
           // instead
           // find the Dom node that represents this movie (with the same id)
-          // clear and reset the innerHTML of this dom node
-          movieFetcher()
-        })
+          // clear and reset the innerHTML of this dom
 
+        })
       } else if (e.target.value === 'Delete') {
         e.preventDefault()
         let movieId = e.target.dataset.id
-        console.log('here')
+        console.log(e.target.parentNode.parentNode.parentNode)
+        e.target.parentNode.parentNode.parentNode.remove()
         fetch(`${movieURL}/${movieId}`, {
           method: "DELETE",
-        }).then( res => movieFetcher())
+        })
       }
   })
 
 
+
   document.addEventListener('click', (e) => {
     if (e.target.className === 'editmovie') {
-      console.log('clicked');
       const editForm = e.target.parentNode.parentNode.querySelector('.edit-movie')
       if (!editForm.style.display || editForm.style.display === "none") {
         editForm.style.display = "block"
@@ -148,7 +144,6 @@ document.addEventListener('DOMContentLoaded', function(event){
         editForm.style.display = "none"
       }
     } else if (e.target.innerText === 'Add Movie') {
-      console.log(addMovieContainer)
       const addForm = document.getElementById('add-form')
       if (!addForm.style.display || addForm.style.display === "none") {
         addMovieContainer.style.display = "block"
