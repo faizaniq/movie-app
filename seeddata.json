@@ -1,45 +1,271 @@
 {
   "movies": [
     {
-      "name": "Us",
-      "category": "Horror",
-      "description": "Accompanied by her husband, son and daughter, Adelaide Wilson returns to the beachfront home where she grew up as a child. Haunted by a traumatic experience from the past, Adelaide grows increasingly concerned that something bad is going to happen. Her worst fears soon become a reality when four masked strangers descend upon the house, forcing the Wilsons into a fight for survival. When the masks come off, the family is horrified to learn that each attacker takes the appearance of one of them.",
-      "image": "https://m.media-amazon.com/images/M/MV5BZTliNWJhM2YtNDc1MC00YTk1LWE2MGYtZmE4M2Y5ODdlNzQzXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_.jpg",
-      "review": [
-        "first"
-      ],
-      "id": 4
-    },
-    {
       "name": "Get Out",
       "category": "Thriller",
-      "description": "Now that Chris (Daniel Kaluuya) and his girlfriend, Rose (Allison Williams), have reached the meet-the-parents milestone of dating, she invites him for a weekend getaway upstate with Missy and Dean. At first, Chris reads the family's overly accommodating behavior as nervous attempts to deal with their daughter's interracial relationship, but as the weekend progresses, a series of increasingly disturbing discoveries lead him to a truth that he never could have imagined.",
+      "description": "Now that Chris (Daniel Kaluuya) and his girlfriend, Rose (Allison Williams), have reached the meet-the-parents milestone of dating, she invites him for a weekend getaway upstate with Missy and Dean. At first, Chris reads the family",
       "image": "https://images-na.ssl-images-amazon.com/images/M/MV5BNTE2Nzg1NjkzNV5BMl5BanBnXkFtZTgwOTgyODMyMTI@._V1_SY1000_CR0,0,631,1000_AL_.jpg",
       "review": [
-        ""
+        "",
+        "first",
+        "second"
       ],
       "id": 5
     },
     {
       "name": "Inception",
       "category": "Sci-Fi/Thriller",
-      "description": "Dom Cobb (Leonardo DiCaprio) is a thief with the rare ability to enter people's dreams and steal their secrets from their subconscious. His skill has made him a hot commodity in the world of corporate espionage but has also cost him everything he loves. Cobb gets a chance at redemption when he is offered a seemingly impossible task: Plant an idea in someone's mind. If he succeeds, it will be the perfect crime, but a dangerous enemy anticipates Cobb's every move.",
+      "description": "Dom Cobb (Leonardo DiCaprio) is a thief with the rare ability to enter people",
       "image": "http://www.gstatic.com/tv/thumb/v22vodart/7825626/p7825626_v_v8_ad.jpg",
       "review": [
         "",
-        ""
+        "",
+        "first",
+        "",
+        "a",
+        "q"
       ],
       "id": 6
     },
     {
-      "name": "Interstellar",
-      "category": "Sci-Fi",
-      "description": "In Earth's future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Caine), a brilliant NASA physicist, is working on plans to save mankind by transporting Earth's population to a new home via a wormhole. But first, Brand must send former NASA pilot Cooper (Matthew McConaughey) and a team of researchers through the wormhole and across the galaxy to find out which of three planets could be mankind's new home.",
-      "image": "http://www.gstatic.com/tv/thumb/v22vodart/10543523/p10543523_v_v8_aa.jpg",
+      "name": "The Thing",
+      "category": "Sci-Fi/Horro",
+      "description": "A research team in Antarctica is hunted by a shape-shifting alien that assumes the appearance of its victims.",
+      "image": "https://m.media-amazon.com/images/M/MV5BNDcyZmFjY2YtN2I1OC00MzU3LWIzZGEtZDA5N2VlNDJjYWI3L2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SY1000_CR0,0,660,1000_AL_.jpg",
       "review": [
-        ""
+        "THE BEST MOVIE"
       ],
       "id": 7
+    },
+    {
+      "name": "The Room",
+      "category": "Drama",
+      "description": "Johnny is a successful banker who lives happily in a San Francisco townhouse with his fiancée, Lisa. One day, inexplicably, she gets bored with him and decides to seduce his best friend, Mark. From there, nothing will be the same again.",
+      "image": "https://m.media-amazon.com/images/M/MV5BYjEzN2FlYmYtNDkwMC00NGFkLWE5ODctYmE5NmYxNzE2MmRiXkEyXkFqcGdeQXVyMjMwODc5Mw@@._V1_.jpg",
+      "review": [
+        "<3"
+      ],
+      "id": 8
+    },
+    {
+      "name": "Howard the Duck",
+      "category": "Action, Adventure, Comedy",
+      "description": "A sarcastic humanoid duck is pulled from his homeworld to Earth where he must stop a hellish alien invasion with the help of a nerdy scientist and a cute struggling female rock singer who fancies him.",
+      "image": "https://m.media-amazon.com/images/M/MV5BZWQ5Y2FmMmItZjYzNC00Yzc5LWE0ZjYtMTI4YTA1ZGJkZjgyXkEyXkFqcGdeQXVyNjE5MjUyOTM@._V1_SY1000_CR0,0,633,1000_AL_.jpg",
+      "review": [
+        "good stuff"
+      ],
+      "id": 9
+    },
+    {
+      "name": "Mac and Me",
+      "category": "Family ",
+      "description": " An alien trying to escape from NASA is befriended by a wheelchair-bound boy.",
+      "image": "https://m.media-amazon.com/images/M/MV5BMTllYjI2ZTktMWRlMS00ZWI4LWIzNmYtMWI2YmE3ZWU2ZDQ2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,638,1000_AL_.jpg",
+      "review": [
+        "90 minute commercial"
+      ],
+      "id": 10
+    },
+    {
+      "name": "Weekend at Bernie's",
+      "category": "Comedy",
+      "description": "Two losers try to pretend that their murdered employer is really alive, leading the hitman to attempt to track him down to finish him off.",
+      "image": "https://m.media-amazon.com/images/M/MV5BZDgwN2QxODItOTcwZS00ZDA1LThjYzUtZTI5NWI3YWY4ZjM4XkEyXkFqcGdeQXVyNjE5MjUyOTM@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
+      "review": [
+        "A fun filled beach adventure"
+      ],
+      "id": 11
+    },
+    {
+      "name": "Mannequin: On the Move",
+      "category": "Comedy",
+      "description": "A young department store intern falls in love with a female store mannequin who is really a peasant girl fallen under a thousand year spell. She comes to life whenever he removes the cursed necklace from her.",
+      "image": "https://m.media-amazon.com/images/M/MV5BZTg2NWY2ZDgtNDJjNS00MWZmLTk1ZjctNTE3MmZjMjM4YzUwXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,631,1000_AL_.jpg",
+      "review": [
+        "Not as good as the first"
+      ],
+      "id": 12
+    },
+    {
+      "name": "Mannequin",
+      "category": "Comedy",
+      "description": "A young artist, searching for his vocation, makes a mannequin so perfect he falls in love with it. Finding the mannequin in a store window, he gets a job there and his creation comes to life.",
+      "image": "https://m.media-amazon.com/images/M/MV5BMTM0ODkyMTIzM15BMl5BanBnXkFtZTcwOTYzNzA2NA@@._V1_.jpg",
+      "review": [
+        "The sequel is not as good"
+      ],
+      "id": 13
+    },
+    {
+      "name": "Twins",
+      "category": "Comedy",
+      "description": "A physically perfect but innocent man goes in search of his long-lost twin brother, who is short, a womanizer, and small-time crook.",
+      "image": "https://m.media-amazon.com/images/M/MV5BMWUzN2VkY2ItYmQ4YS00MjFmLWJhZDQtYWY1NWQ2NTA5NDNlXkEyXkFqcGdeQXVyNDc2NjEyMw@@._V1_SY1000_CR0,0,662,1000_AL_.jpg",
+      "review": [
+        "Danny devito at his best"
+      ],
+      "id": 14
+    },
+    {
+      "name": "Kindergarten  Cop",
+      "category": "Comedy",
+      "description": "A tough cop must pose as a kindergarten teacher in order to locate a dangerous criminal's ex-wife, who may hold the key to putting him behind bars.",
+      "image": "https://m.media-amazon.com/images/M/MV5BMjMyMTIyOTc0N15BMl5BanBnXkFtZTgwODY1NTk4NjE@._V1_SY1000_CR0,0,668,1000_AL_.jpg",
+      "review": [
+        "Who is your daddy and what does he do?"
+      ],
+      "id": 15
+    },
+    {
+      "name": "Jingle all the Way",
+      "category": "Christmas Comedy",
+      "description": "A father vows to get his son a Turbo Man action figure for Christmas. However, every store is sold out of them, and he must travel all over town and compete with everybody else in order to find one.",
+      "image": "https://m.media-amazon.com/images/M/MV5BMmJlYzViNzctMjQ1Ni00ZWQ4LThkN2YtMzI2ZGU5Nzk0NTAyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY999_CR0,0,656,999_AL_.jpg",
+      "review": [
+        "WOO!!!"
+      ],
+      "id": 16
+    },
+    {
+      "name": "Ghoulies III: Ghoulies Go to College",
+      "category": "Horror Comedy",
+      "description": "A college teacher brings the little creatures back to his campus, where they proceed to terrorize the faculty and students.",
+      "image": "https://m.media-amazon.com/images/M/MV5BMmQzMzA2MzEtY2EwMS00Yjk3LWEyYjEtNzFmODFlYzZmYzdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
+      "review": [
+        "Not ghoulies one... :("
+      ],
+      "id": 17
+    },
+    {
+      "name": "Super Mario Bros.",
+      "category": " Adventure, Comedy, Family",
+      "description": "Two Brooklyn plumbers, Mario and Luigi, must travel to another dimension to rescue a princess from the evil dictator King Koopa and stop him from taking over the world.",
+      "image": "https://m.media-amazon.com/images/M/MV5BMzRmNGY0NTctYTNkNC00M2FkLWI0ZTgtYTE5ODhiZjYxMDkxXkEyXkFqcGdeQXVyNjE5MjUyOTM@._V1_.jpg",
+      "review": [
+        "They were drunk"
+      ],
+      "id": 18
+    },
+    {
+      "name": "The Flintstones",
+      "category": " Comedy, Family, Fantasy",
+      "description": "In a parallel modern-day Stone Age world, a working-class family, the Flintstones, are set up for an executive job. But they learn that money can't buy happiness.",
+      "image": "https://m.media-amazon.com/images/M/MV5BYzY0ZTk4YzctNzYzNy00ZDQ0LTg2Y2ItZTQyYzQxMjQwMDc2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
+      "review": [
+        "WILLMA!!!!"
+      ],
+      "id": 19
+    },
+    {
+      "name": "The Flintstones in Viva Rock Vegas",
+      "category": "Comedy, Family, Romance ",
+      "description": "In this live-action prequel to the 1994 comedy hit, the Flintstones and the Rubbles go on a trip to Rock Vegas, where Wilma is pursued by playboy Chip Rockefeller.",
+      "image": "https://m.media-amazon.com/images/M/MV5BNTUzYzQzMGQtNTYyNS00NmUzLThmZmUtMmIyNjQzNDU4YWYwXkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_.jpg",
+      "review": [
+        "WILMA!!!!"
+      ],
+      "id": 20
+    },
+    {
+      "name": "Chopping Mall",
+      "category": "Horror",
+      "description": "A group of young shopping mall employees stay behind for a late night party in one of the stores. When the mall goes on lock-down before they can get out, the robot security system malfunctions, and goes on a killing spree.",
+      "image": "https://m.media-amazon.com/images/M/MV5BNTMzYmU2NzYtY2I3OC00NTlkLWE1NzUtZDMxOTdkYTFmOTI3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,640,1000_AL_.jpg",
+      "review": [
+        "robots in a mall"
+      ],
+      "id": 21
+    },
+    {
+      "name": "Bio-Dome",
+      "category": "Comedy",
+      "description": "Moronic best friends get themselves locked inside the Bio-Dome, a science experiment, along with a group of environmental scientists for one year.",
+      "image": "https://m.media-amazon.com/images/M/MV5BYzY0ZjI0NTUtNDE4Yi00OGU2LWExZDMtNTY1MTM3ZWE3MzEyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
+      "review": [
+        "The weakest Baldwin"
+      ],
+      "id": 22
+    },
+    {
+      "name": "Kaazam",
+      "category": " Comedy, Family, Fantasy ",
+      "description": "A troubled kid inadvertently releases a genie, who must grant him any three wishes he requests.",
+      "image": "https://m.media-amazon.com/images/M/MV5BYzhiNzUyOGQtYjI5OC00NmYxLTgyNmMtMGM3N2U0OWJmNDhiXkEyXkFqcGdeQXVyMTMxMTY0OTQ@._V1_.jpg",
+      "review": [
+        "Shaq is back"
+      ],
+      "id": 23
+    },
+    {
+      "name": "Theodore Rex",
+      "category": "Action, Comedy, Family",
+      "description": "In an alternate futuristic society, a tough female police detective is paired with a talking dinosaur to find the killer of dinosaurs and other prehistoric animals leading them to a mad scientist bent on creating a new Armageddon.",
+      "image": "https://m.media-amazon.com/images/M/MV5BMGE2MDBhODctN2JhMy00NGRjLWFlZjAtNjk5MGUwNTBmMzJlXkEyXkFqcGdeQXVyMTQ2MjQyNDc@._V1_.jpg",
+      "review": [
+        "Woopy and a dinosaur what were they thinking... garbage"
+      ],
+      "id": 24
+    },
+    {
+      "name": "Logan",
+      "category": "",
+      "description": "In a future where mutants are nearly extinct, an elderly and weary Logan leads a quiet life. But when Laura, a mutant child pursued by scientists, comes to him for help, he must get her to safety.",
+      "image": "https://m.media-amazon.com/images/M/MV5BMjIwMzI1MTktNWI0OC00YTgwLTkwMjYtMjEwYTc5NzA3NThiXkEyXkFqcGdeQXVyMTMxODYzNjg@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
+      "review": [
+        "I cried - Nate"
+      ],
+      "id": 25
+    },
+    {
+      "name": "Eternal Sunshine of the Spotless Mind",
+      "category": "Drama, Romance, Sci-Fi",
+      "description": "When their relationship turns sour, a couple undergoes a medical procedure to have each other erased from their memories.",
+      "image": "https://m.media-amazon.com/images/M/MV5BMTY4NzcwODg3Nl5BMl5BanBnXkFtZTcwNTEwOTMyMw@@._V1_SY1000_CR0,0,674,1000_AL_.jpg",
+      "review": [
+        "Its a good sad movie. -Brianna"
+      ],
+      "id": 26
+    },
+    {
+      "name": "A Star Is Born",
+      "category": " Drama, Music, Romance ",
+      "description": "A musician helps a young singer find fame as age and alcoholism send his own career into a downward spiral.",
+      "image": "https://m.media-amazon.com/images/M/MV5BNmE5ZmE3OGItNTdlNC00YmMxLWEzNjctYzAwOGQ5ODg0OTI0XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
+      "review": [
+        "Lady Gaga should have gotten an Oscar. -Elizabeth"
+      ],
+      "id": 27
+    },
+    {
+      "name": "The Princess Bride",
+      "category": "Adventure, Family, Fantasy",
+      "description": "While home sick in bed, a young boy's grandfather reads him the story of a farmboy-turned-pirate who encounters numerous obstacles, enemies and allies in his quest to be reunited with his true love.",
+      "image": "https://m.media-amazon.com/images/M/MV5BMGM4M2Q5N2MtNThkZS00NTc1LTk1NTItNWEyZjJjNDRmNDk5XkEyXkFqcGdeQXVyMjA0MDQ0Mjc@._V1_SY1000_CR0,0,676,1000_AL_.jpg",
+      "review": [
+        "If you love action, comedy, drama and romance, this movie is for you. -Elizabeth"
+      ],
+      "id": 28
+    },
+    {
+      "name": "The Transformers: The Movie",
+      "category": "Animation, Action, Adventure ",
+      "description": "The Autobots must stop a colossal planet consuming robot who goes after the Autobot Matrix of Leadership. At the same time, they must defend themselves against an all-out attack from the Decepticons.",
+      "image": "https://m.media-amazon.com/images/M/MV5BZGM1MGY4OTYtOGZkOC00NjYyLTk3OTMtODUyZDdhYWQ3NGFjXkEyXkFqcGdeQXVyMzM4MjM0Nzg@._V1_.jpg",
+      "review": [
+        "Best transformers movie made. -Farhan"
+      ],
+      "id": 29
+    },
+    {
+      "name": "Mulan",
+      "category": "Animation, Adventure, Family ",
+      "description": "To save her father from death in the army, a young maiden secretly goes in his place and becomes one of China's greatest heroines in the process.",
+      "image": "https://m.media-amazon.com/images/M/MV5BODkxNGQ1NWYtNzg0Ny00Yjg3LThmZTItMjE2YjhmZTQ0ODY5XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,673,1000_AL_.jpg",
+      "review": [
+        "In my opinion its the best disney movie made. -David"
+      ],
+      "id": 30
     }
   ]
 }

@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function(event){
   const addImage = document.getElementById('add-image')
   const addReview = document.getElementById('review')
 
-
   displayAllMovies()
+
 
   // GET movies
   function movieFetcher(){
@@ -35,9 +35,10 @@ document.addEventListener('DOMContentLoaded', function(event){
     // add & render new movie
   function postMovie(){
     let newMovieReviewArray = []
-    newMovieReviewArray.push(addReview.value)
     console.log(addReview.value)
-    // debugger
+    if (addReview.value !== "") {
+      newMovieReviewArray.push(addReview.value)
+    }
     return fetch(movieURL, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       headers: {
@@ -56,8 +57,20 @@ document.addEventListener('DOMContentLoaded', function(event){
 
   function addNewMovie(){
     postMovie()
-    .then(movie => renderMovie(movie, allMovies))
+    .then(movie => {
+      renderMovie(movie, allMovies)
+      let reviewDiv = document.querySelector(`#review-${movie.id}`)
+      movie.review.forEach(function(review){
+      reviewDiv.innerHTML += `<li>${review}</li>`
+      })
+      addName.value = ""
+      addCategory.value = ""
+      addDescription.value = ""
+      addReview.value = ""
+      addImage.value = ""
+    })
   }
+
     // open edit form
   function toggleEditForm(target) {
     const editForm = target.parentNode.querySelector('.edit-movie')
@@ -98,17 +111,17 @@ document.addEventListener('DOMContentLoaded', function(event){
             </div>
           </div>
         </div>
-        <button class="editmovie" data-id="${movie.id}">Edit</button>
+        <button class="editmovie btn btn-dark btn btn-primary" data-toggle="modal" data-target="${movie.id}" data-id="${movie.id}">Edit</button>
         <div class="edit-movie" style="">
           <form id="edit-form">
-            <input type="text" name="name" id="edit-name" size="42" placeholder="Name" value='${movie.name}'>
+            <input type="text" name="name" id="edit-name" size="48" placeholder="Name" value='${movie.name}'>
             <br/>
-            <input type="text" name="category" id="edit-category" size="42" placeholder="Category" value='${movie.category}'>
+            <input type="text" name="category" id="edit-category" size="48" placeholder="Category" value='${movie.category}'>
             <br/>
-            <input type="text" name="url" id="edit-image" size="42" placeholder="Image URL" value='${movie.image}'>
+            <input type="text" name="url" id="edit-image" size="48" placeholder="Image URL" value='${movie.image}'>
             <br/>
-            <input type="text" name="description" id="edit-description" size="42" placeholder="Add Description..." value='${movie.description}'>
-            <input type="text" name="review" id="edit-review" size="42" placeholder="Add Review...">
+            <input type="text" name="description" id="edit-description" size="48" placeholder="Add Description..." value='${movie.description}'>
+            <input type="text" name="review" id="edit-review" size="48" placeholder="Add Review...">
             <br/>
             <br/>
             <input type="submit" value="Update" data-id=${movie.id}></input>
@@ -128,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function(event){
     }).then(res => res.json())
   }
 
-  function patchMovie(editName, editDescription, editCategory, editImage, editReview, movieId){
+  function patchMovie(editName, editDescription, editCategory, editImage, reviewArray, movieId){
     return fetch(`${movieURL}/${movieId}`, {
     method: "PATCH",
     headers: {
@@ -140,13 +153,13 @@ document.addEventListener('DOMContentLoaded', function(event){
         category: editCategory,
         description: editDescription,
         image: editImage,
-        review: editReview
+        review: reviewArray
       }),
     }).then(res => res.json())
   }
 
-  function updateMovie(editName, editDescription, editCategory, editImage, editReview, movieId, outerCard){
-    patchMovie(editName, editDescription, editCategory, editImage, editReview, movieId)
+  function updateMovie(editName, editDescription, editCategory, editImage, reviewArray, movieId, outerCard){
+    patchMovie(editName, editDescription, editCategory, editImage, reviewArray, movieId)
     .then(movie => {
       renderMovie(movie, outerCard)
       let reviewDiv = document.querySelector(`#review-${movie.id}`)
@@ -156,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function(event){
     })
   }
 
-  // POST, PATCH, DELETE
+  // PATCH, DELETE
   document.addEventListener('click', (e) => {
     if (e.target.value === 'Submit') {
       e.preventDefault()
@@ -175,27 +188,37 @@ document.addEventListener('DOMContentLoaded', function(event){
         let editDescription = e.target.parentElement.description.value
         let editCategory = e.target.parentElement.category.value
         let editImage = e.target.parentElement.url.value
-        let editReview = e.target.parentElement.review.value
         let movieId = e.target.dataset.id
         let flipCard = e.target.offsetParent
         let outerCard = e.target.parentNode.parentNode.parentNode.parentNode
-        return fetch(`${movieURL}/${movieId}`)
-        .then(res => res.json())
-        .then(movie => {
+        if (e.target.parentElement.review.value === "") {
+          console.log('no')
+        }
+        let editReview = e.target.parentElement.review.value
+          return fetch(`${movieURL}/${movieId}`)
+          .then(res => res.json())
+          .then(movie => {
           let reviewArray = movie.review
-          console.log(' editReview')
-          reviewArray.push(editReview)
-          updateMovie(editName, editDescription, editCategory, editImage, reviewArray, movieId, outerCard)
-          flipCard.remove()
+          console.log(reviewArray)
+          if (editReview !== "") {
+            console.log('empty')
+            reviewArray.push(editReview)
+            updateMovie(editName, editDescription, editCategory, editImage, reviewArray, movieId, outerCard)
+            flipCard.remove()
+          } else {
+            updateMovie(editName, editDescription, editCategory, editImage, reviewArray, movieId, outerCard)
+            flipCard.remove()
+          }
         })
-      console.log(reviewArray)
+          // console.log(reviewArray.length)
+
     }
   })
 
   // Add & Edit toggler
   document.addEventListener('click', (e) => {
     const target = e.target
-    if (target.className === 'editmovie') {
+    if (target.className === 'editmovie btn btn-dark btn btn-primary') {
       toggleEditForm(target)
     } else if (target.innerText === 'Add Movie') {
       toggleAddForm(addMovieContainer)
