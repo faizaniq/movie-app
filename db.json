@@ -5,32 +5,45 @@
       "category": "Horror",
       "description": "Accompanied by her husband, son and daughter, Adelaide Wilson returns to the beachfront home where she grew up as a child. Haunted by a traumatic experience from the past, Adelaide grows increasingly concerned that something bad is going to happen. Her worst fears soon become a reality when four masked strangers descend upon the house, forcing the Wilsons into a fight for survival. When the masks come off, the family is horrified to learn that each attacker takes the appearance of one of them.",
       "image": "https://m.media-amazon.com/images/M/MV5BZTliNWJhM2YtNDc1MC00YTk1LWE2MGYtZmE4M2Y5ODdlNzQzXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_.jpg",
-      "review": "aasasdf",
+      "review": [
+        "first"
+      ],
       "id": 4
     },
     {
-      "name": "Interstellar",
-      "category": "Sci-Fi/Adventure/Drama",
-      "description": "In Earth",
-      "image": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
-      "review": "DcDSFSDF",
-      "id": 19
+      "name": "Get Out",
+      "category": "Thriller",
+      "description": "Now that Chris (Daniel Kaluuya) and his girlfriend, Rose (Allison Williams), have reached the meet-the-parents milestone of dating, she invites him for a weekend getaway upstate with Missy and Dean. At first, Chris reads the family",
+      "image": "https://images-na.ssl-images-amazon.com/images/M/MV5BNTE2Nzg1NjkzNV5BMl5BanBnXkFtZTgwOTgyODMyMTI@._V1_SY1000_CR0,0,631,1000_AL_.jpg",
+      "review": [
+        "",
+        "first",
+        "second"
+      ],
+      "id": 5
     },
     {
       "name": "Inception",
-      "category": "awqeqwerqwSci-Fi/Thriller",
-      "description": "Dom Cobb is a thief with the rare ability to enter people",
+      "category": "Sci-Fi/Thriller",
+      "description": "Dom Cobb (Leonardo DiCaprio) is a thief with the rare ability to enter people",
       "image": "http://www.gstatic.com/tv/thumb/v22vodart/7825626/p7825626_v_v8_ad.jpg",
-      "review": "asdfasdfasdf",
-      "id": 20
+      "review": [
+        "",
+        "",
+        "first"
+      ],
+      "id": 6
     },
     {
-      "name": "asdasdf",
-      "category": "asdasdfasdfasasdasdfasdfasdfdf",
-      "description": "",
-      "image": "\\",
-      "review": "asdfasdf",
-      "id": 24
+      "name": "Interstellar",
+      "category": "Sci-Fi",
+      "description": "In Earth",
+      "image": "http://www.gstatic.com/tv/thumb/v22vodart/10543523/p10543523_v_v8_aa.jpg",
+      "review": [
+        "",
+        "first"
+      ],
+      "id": 7
     }
   ]
 }
