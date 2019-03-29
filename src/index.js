@@ -9,13 +9,21 @@ document.addEventListener('DOMContentLoaded', function(event){
   const addDescription = document.getElementById('add-description')
   const addImage = document.getElementById('add-image')
   const addReview = document.getElementById('review')
+  const form = document.getElementById('edit-form')
+  const updateBttn = document.getElementById('update')
+  const deleteBttn = document.getElementById('delete')
+
 
   displayAllMovies()
-
 
   // GET movies
   function movieFetcher(){
     return fetch(movieURL)
+    .then(res => res.json())
+  }
+
+  function fetchAMovie(id){
+    return fetch(`${movieURL}/${id}`)
     .then(res => res.json())
   }
 
@@ -92,8 +100,8 @@ document.addEventListener('DOMContentLoaded', function(event){
   function renderMovie(movie, location){
     location.innerHTML +=
     `
-    <div class="outer-card">
-      <div class="flip-card">
+    <div class="outer-card" id="outer-card-${movie.id}">
+      <div class="flip-card" id="flip-card-${movie.id}">
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <div data-movie-id=${movie.id}>
@@ -102,6 +110,7 @@ document.addEventListener('DOMContentLoaded', function(event){
               </div>
             </div>
           </div>
+
           <div class="flip-card-back">
           <br/>
             <h4>${movie.name}</h4>
@@ -111,28 +120,24 @@ document.addEventListener('DOMContentLoaded', function(event){
             </div>
           </div>
         </div>
-        <button class="editmovie btn btn-dark btn btn-primary" data-toggle="modal" data-target="${movie.id}" data-id="${movie.id}">Edit</button>
-        <div class="edit-movie" style="">
-          <form id="edit-form">
-            <input type="text" name="name" id="edit-name" size="48" placeholder="Name" value='${movie.name}'>
-            <br/>
-            <input type="text" name="category" id="edit-category" size="48" placeholder="Category" value='${movie.category}'>
-            <br/>
-            <input type="text" name="url" id="edit-image" size="48" placeholder="Image URL" value='${movie.image}'>
-            <br/>
-            <input type="text" name="description" id="edit-description" size="48" placeholder="Add Description..." value='${movie.description}'>
-            <input type="text" name="review" id="edit-review" size="48" placeholder="Add Review...">
-            <br/>
-            <br/>
-            <input type="submit" value="Update" data-id=${movie.id}></input>
-            <input type="submit" value="Delete" data-id=${movie.id}></input>
-            <input type="submit" value="Add to Favorites" data-id=${movie.id}></input>
-          </form>
-        </div>
+        <button type="button" class="editmovie btn btn-dark btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-movie-id=${movie.id}>Edit</button>
        <br/>
       </div>
     </div>
     `
+  }
+
+  function formBuilder(movie){
+    let nameField = document.getElementById('edit-name')
+    nameField.value = movie.name
+    let catField = document.getElementById('edit-category')
+    catField.value = movie.category
+    let urlField = document.getElementById('edit-image')
+    urlField.value = movie.image
+    let descField = document.getElementById('edit-description')
+    descField.value = movie.description
+    let reviewField = document.getElementById('edit-review')
+    reviewField = ""
   }
 
   function deleteMovie(movieId){
@@ -164,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function(event){
       renderMovie(movie, outerCard)
       let reviewDiv = document.querySelector(`#review-${movie.id}`)
       movie.review.forEach(function(review){
-      reviewDiv.innerHTML += `<li>${review}</li>`
+      return reviewDiv.innerHTML += `<li>${review}</li>`
       })
     })
   }
@@ -176,11 +181,12 @@ document.addEventListener('DOMContentLoaded', function(event){
       addNewMovie()
     } else if (e.target.value === 'Delete') {
       e.preventDefault()
-      let movieId = e.target.dataset.id
+      let movieId = deleteBttn.dataset.id
+      let outerCard = document.getElementById(`outer-card-${movieId}`)
       deleteMovie(movieId)
       .then(() => {
         console.log(e.target.offsetParent.parentElement)
-        e.target.offsetParent.parentElement.remove()
+        outerCard.remove()
       })
     } else if (e.target.value === 'Update') {
         e.preventDefault()
@@ -189,29 +195,28 @@ document.addEventListener('DOMContentLoaded', function(event){
         let editCategory = e.target.parentElement.category.value
         let editImage = e.target.parentElement.url.value
         let movieId = e.target.dataset.id
-        let flipCard = e.target.offsetParent
-        let outerCard = e.target.parentNode.parentNode.parentNode.parentNode
-        if (e.target.parentElement.review.value === "") {
-          console.log('no')
-        }
+        let flipCard = document.getElementById(`flip-card-${movieId}`)
+        let outerCard = document.getElementById(`outer-card-${movieId}`)
         let editReview = e.target.parentElement.review.value
           return fetch(`${movieURL}/${movieId}`)
           .then(res => res.json())
           .then(movie => {
           let reviewArray = movie.review
-          console.log(reviewArray)
           if (editReview !== "") {
-            console.log('empty')
             reviewArray.push(editReview)
             updateMovie(editName, editDescription, editCategory, editImage, reviewArray, movieId, outerCard)
+            editReview = ""
             flipCard.remove()
           } else {
             updateMovie(editName, editDescription, editCategory, editImage, reviewArray, movieId, outerCard)
             flipCard.remove()
+            editReview = ""
           }
         })
-          // console.log(reviewArray.length)
-
+    } else if (e.target.className === "editmovie btn btn-dark btn btn-primary") {
+      let id = e.target.dataset.movieId
+      fetchAMovie(id)
+      .then(movie => formBuilder(movie))
     }
   })
 
@@ -219,7 +224,10 @@ document.addEventListener('DOMContentLoaded', function(event){
   document.addEventListener('click', (e) => {
     const target = e.target
     if (target.className === 'editmovie btn btn-dark btn btn-primary') {
-      toggleEditForm(target)
+      console.log(target.dataset.movieId)
+      updateBttn.dataset.id = target.dataset.movieId
+      deleteBttn.dataset.id = target.dataset.movieId
+      console.log(updateBttn.dataset.id)
     } else if (target.innerText === 'Add Movie') {
       toggleAddForm(addMovieContainer)
     }

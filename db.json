@@ -1,33 +1,6 @@
 {
   "movies": [
     {
-      "name": "Get Out",
-      "category": "Thriller",
-      "description": "Now that Chris (Daniel Kaluuya) and his girlfriend, Rose (Allison Williams), have reached the meet-the-parents milestone of dating, she invites him for a weekend getaway upstate with Missy and Dean. At first, Chris reads the family",
-      "image": "https://images-na.ssl-images-amazon.com/images/M/MV5BNTE2Nzg1NjkzNV5BMl5BanBnXkFtZTgwOTgyODMyMTI@._V1_SY1000_CR0,0,631,1000_AL_.jpg",
-      "review": [
-        "",
-        "first",
-        "second"
-      ],
-      "id": 5
-    },
-    {
-      "name": "Inception",
-      "category": "Sci-Fi/Thriller",
-      "description": "Dom Cobb (Leonardo DiCaprio) is a thief with the rare ability to enter people",
-      "image": "http://www.gstatic.com/tv/thumb/v22vodart/7825626/p7825626_v_v8_ad.jpg",
-      "review": [
-        "",
-        "",
-        "first",
-        "",
-        "a",
-        "q"
-      ],
-      "id": 6
-    },
-    {
       "name": "The Thing",
       "category": "Sci-Fi/Horro",
       "description": "A research team in Antarctica is hunted by a shape-shifting alien that assumes the appearance of its victims.",
@@ -268,25 +241,34 @@
       "id": 30
     },
     {
-      "name": "Us",
-      "category": "Horror, Thriller",
-      "description": "A family",
-      "image": "https://m.media-amazon.com/images/M/MV5BZTliNWJhM2YtNDc1MC00YTk1LWE2MGYtZmE4M2Y5ODdlNzQzXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_SY1000_CR0,0,631,1000_AL_.jpg",
+      "name": "Fifth Element",
+      "category": " Action, Adventure, Sci-Fi",
+      "description": "In the colorful future, a cab driver unwittingly becomes the central figure in the search for a legendary cosmic weapon to keep Evil and Mr. Zorg at bay.",
+      "image": "https://m.media-amazon.com/images/M/MV5BZWFjYmZmZGQtYzg4YS00ZGE5LTgwYzAtZmQwZjQ2NDliMGVmXkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SY1000_CR0,0,696,1000_AL_.jpg",
       "review": [
-        "Had to watch it twice. -Faizan",
-        "Dope -Josh"
+        "I love this baby - Matt"
       ],
       "id": 31
     },
     {
-      "name": "Summer Wars",
-      "category": "Animation, Action, Comedy ",
-      "description": "A student tries to fix a problem he accidentally caused in OZ, a digital world, while pretending to be the fiancé of his friend at her grandmother's 90th birthday.",
-      "image": "https://m.media-amazon.com/images/M/MV5BMTYyOTk3OTQzM15BMl5BanBnXkFtZTcwMjU4NDYyNA@@._V1_SY1000_CR0,0,681,1000_AL_.jpg",
+      "name": "The Incredibly Strange Creatures Who Stopped Living and Became Mixed-Up Zombies!!?",
+      "category": "Horror",
+      "description": "Jerry falls in love with a stripper he meets at a carnival. Little does he know that she is the sister of a gypsy fortune teller whose predictions he had scoffed at earlier. The gypsy turns him into a zombie and he goes on a killing spree.",
+      "image": "https://m.media-amazon.com/images/M/MV5BNWIyMDk3NDEtYjI3Yy00ZGJlLWE5ZGItYjAxOTMwNTgxOWMxXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,653,1000_AL_.jpg",
       "review": [
-        "10/10 Its a great movie for the whole family. -David"
+        "Horror?? More like horrible - Matt"
       ],
       "id": 32
+    },
+    {
+      "name": "Santa with Muscles",
+      "category": "Comedy",
+      "description": "An evil millionaire believes he is Santa Claus after an accident renders him amnesiac.",
+      "image": "https://m.media-amazon.com/images/M/MV5BMTBkNmZhZGUtMzkyNi00ZThhLTg1YmQtMzUyNjA3MzA3MTAxXkEyXkFqcGdeQXVyNjA3OTI5MjA@._V1_.jpg",
+      "review": [
+        "good shit"
+      ],
+      "id": 33
     }
   ]
 }
